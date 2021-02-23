@@ -32,6 +32,9 @@
                 <configuration>
                     <recompileMode>incremental</recompileMode>
                     <useZincServer>true</useZincServer>
+                    <args>
+                        <arg>-nobootcp</arg>
+                    </args>
                 </configuration>
                 <executions>
                     <execution>
