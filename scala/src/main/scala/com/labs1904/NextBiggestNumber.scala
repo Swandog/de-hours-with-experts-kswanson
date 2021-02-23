@@ -28,8 +28,12 @@ object NextBiggestNumber {
       // The pivot point is the start of the digits we want to change
       // Split the (reversed) list into numbers not changing, and those that are
       val (changing, pivot :: reversedUnchanged) = digitsReversed.splitAt(pivotPoint)
+      val (starting, newPivot :: ending) = changing.sorted.span(_ <= pivot)
 
-      0
+      val newDigits = reversedUnchanged.reverse ++ (newPivot :: starting ++ (pivot :: ending))
+
+      val answer = newDigits.mkString.toInt
+      answer
     } else {
       // If the pivotPoint is 0, that means indexWhere returned -1, which means
       // the revesed digits only increased, which means that the original sequence
